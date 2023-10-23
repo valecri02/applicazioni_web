@@ -1,0 +1,52 @@
+header{
+    text-align: left;
+    vertical-align: middle;
+    padding: 0em 2em;
+    border: solid;
+    margin: 1% 2.5%;
+}
+
+h1{
+    margin-right: 40vw;
+}
+
+header h1, nav{
+    display: inline;
+}
+
+body > main{
+    border: solid;
+    margin: 1% 2.5%;
+}
+
+.post{
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.nome_utente{
+    margin-right: 60vw;
+}
+
+#btn_add{
+    border: solid;
+    border-radius: 50%;
+    border-width: 2px;
+    width: 50px;
+    height: 50px;
+    font-size:xx-large;
+    position: fixed;
+    left: 90%;
+    bottom: 2vh;
+    text-align: center;
+    vertical-align: middle;
+}
+
+aside{
+    border: solid;
+    margin: 1% 2.5%;;
+}
+
+aside a{
+    color: black;
+}
