@@ -1,0 +1,56 @@
+/* al contenitore si applica la funzione display grid */
+.contenitore{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+/* fr rappresenta una frazione: in questo caso ogni colonna occupa 1/3 */
+.contenitore div {
+    background-color: aquamarine;
+    margin: 0.5em;
+}
+
+#one {
+    /* per indicare la posizione della "scatola" */
+    grid-column: 1 / 3;
+    /* parte dalla cella 1 e finisce prima della cella 3 */
+    grid-row: 1 / 3;
+}
+
+#three {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    /* le scatole si sovrappongono */
+}
+
+.contenitore{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: darkseagreen;
+    height: 50vw;
+    flex-direction: column;
+}
+
+#one{
+    /* dare dimensioni diverse agli elementi (una sorta di priorità) */
+    flex: 3;
+}
+
+#two{
+    flex: 2;
+}
+
+#three{
+    flex: 1;
+}
+
+@media(max-width: 900px){
+    .contenitore{
+        background-color: red;
+    }
+    #three{
+        display: none;
+    }
+}
