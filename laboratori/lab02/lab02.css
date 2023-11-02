@@ -65,6 +65,11 @@ header{
 
 
 #btn_add {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: auto;
+    vertical-align: middle;
     background-color: white;
     border: solid;
     border-radius: 50%;
@@ -74,8 +79,6 @@ header{
     height: 60px;
     position: fixed;
     right: 30px;
-    text-align: center;
-    vertical-align: top;
     width: 60px;
 }
 
