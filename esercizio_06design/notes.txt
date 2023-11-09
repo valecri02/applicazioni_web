@@ -1,0 +1,46 @@
+Creare applicaizoni web efficaci
+
+Architettura dell'informazione:
+- edifici, rete, calcolatori
+- insieme di dati
+
+Progettazione strutturale di informazioni condivise
+
+Informazioni trovabili e comprensibile per le persone a cui si rivolge
+
+1. chi sono le persone a cui ci stiamo rivolgendo?
+2. quali sono le loro conoscenze (terminologie che usano)
+3. contesto: cultura, tecnologie, risorse...
+
+Capiamo le cose quando sono messe in relazione a qualcos'altro e quando 
+usano strutture simili. La familiarità aiuta a capire e trovare le 
+informazioni meglio.
+
+
+  NON FARMI PENSARE
+  sito fatto male se devo pensare troppo
+
+Sitemaps: evidenziano le relazioni tra elementi di informazioni
+usate per raccontale l'organizzazione la navigazione, la struttura di un tipo
+
+Come strutturare dal punto di vista logico contenuto e informazioni
+
+
+VISUAL DESIGN (progettazione visuale)
+Fornire orientamento, familiarità, esprimere significato e stile
+
+Spazi
+Titoli - organizzare le cose in maniera gerarchica
+Schematico
+
+TESTO: spazi, font (per definire una gerarchia), allineamento
+GERARCHIA VISUALE: colori, dimensioni del font
+
+
+
+Punto focale (discontinuità di colore)
+
+
+Progettare in scala di grigi e successivamente aggiungere i colori
+Ogni colore dovrebbe avere un significato associato
+Usare una palette di colori limitata che riutiliziamo all'interno del sito
