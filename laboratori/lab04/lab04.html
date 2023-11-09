@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <title>Introduzione alle Applicazioni Web</title>
+        <meta name="description" content="Primo laboratorio di introduzione alle Applicazioni Web. Dedicato ad HTML e CSS">
+        <meta name="author" content="Cristoferi Valentina s293392">
+        <link rel="stylesheet" href="lab04.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <div class="p-4 text-white align-middle pe-5" id="intestazione">
+            <div class="row">
+                <div class="col-11  align-middle m-auto">
+                    <p class="h1">My Cool Social Network</p>
+                </div>
+                <div class="col-1">
+                    <nav class="navbar navbar-expand-lg w-100" data-bs-theme="dark">
+                        <div class="container">
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarNav">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Chi siamo</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>   
+            
+
+        <main class="m-4">
+            <div class="row p-2" id="title">
+                <div class="col-9 m-auto">
+                    <p class="h2"> Nome ricetta </p>
+                </div>
+                <div class="col flex-row">
+                    <ul class="list-group flex-column justify-content-between text-end">
+                        <li class="list-group-item border-0 bg-transparent">
+                            <a href="#" title="Utente" class="fs-5 p-auto">Nome utente</a>
+                        </li>
+                        <li class="list-group-item border-0 p-auto bg-transparent">
+                            <p class="fs-6">data</p>
+                        </li>
+                    </ul>
+                </div>
+                <img class="col-1 img-fluid rounded-circle" src="user.jpg" alt="Foto profilo dell'utente">
+            </div>
+
+            <div class="row mt-4 mb-4 flex-row" id="info">
+                <img  src="img1.jpg" class="col-4 img-fluid rounded" alt="Immagine ricetta">
+
+                <div class="col-4 flex-column text-center m-auto align-middle">
+                    <p class="h4 pt-3">Ingredienti</p>
+                    <ul class="list-group flex-column justify-content-between">
+                        <li class="list-group-item border-0">
+                            ingrediente 1
+                        </li>
+                        <li class="list-group-item border-0">
+                            ingrediente 2
+                        </li>
+                        <li class="list-group-item border-0">
+                            ingrediente 3
+                        </li>
+                        <li class="list-group-item border-0">
+                            ingrediente 4
+                        </li>
+                        <li class="list-group-item border-0">
+                            ingrediente 5
+                        </li>
+                        <li class="list-group-item border-0">
+                            ingrediente 6
+                        </li>
+                    </ul>
+                    
+                </div>
+                <div class="col text-center m-auto">
+
+                    <p class="h4 pt-3">Difficoltà:</p> Facile
+
+                    <p  class="h4 pt-3">Strumenti</p>
+                    <ul class="list-group flex-column justify-content-between text-center">
+                        <li class="list-group-item border-0">
+                            strumento 1
+                        </li>
+                        <li class="list-group-item border-0">
+                            strumento 2
+                        </li>
+                        <li class="list-group-item border-0">
+                            strumento 3
+                        </li>
+                    </ul>
+                    
+                    <p class="h4 pt-3">Tempo:</p> 30 minuti
+                </div>
+            </div>
+
+            <div class="row ms-5 me-5" id="procedimento">
+                <p class="h4 pt-3">Procedimento</p> 
+                <ol class="list-group list-group-numbered">
+                    <li class="list-group-item border-0">
+                        passaggio 1
+                    </li>
+                    <li class="list-group-item border-0">
+                        passaggio 2
+                    </li>
+                    <li class="list-group-item border-0">
+                        passaggio 3
+                    </li>
+                    <li class="list-group-item border-0">
+                        passaggio 4
+                    </li>
+                    <li class="list-group-item border-0">
+                        passaggio 2
+                    </li>
+                    <li class="list-group-item border-0">
+                        passaggio 3
+                    </li>
+
+                </ol>
+            </div>
+
+            <div id="comments" class="m-4">
+                <div id="com1" class="commento">
+                    <div class="comm_int">
+                        <img  src="user.jpg" class="img-fluid rounded-circle m-3 comm_img" alt="Immagine utente">
+                        <div class="comm_usr flex-column m-auto">
+                            <div class="fs-4 m-auto ">Utente</div>
+                            <div class="fs-6 m-auto">7 ore fa</div>
+                        </div>
+                    </div>
+                    <p>
+                        Grazie, grazie mille Alan ti ringrazio ancora di avermi fatto scoprire questa ricetta sono andato nel bosco proprio dove mi hai consigliato te!!!!! Sto benissimo
+                    </p>
+                </div>
+
+                <div id="com2" class="commento">
+                    <div class="comm_int">
+                        <img  src="user.jpg" class="img-fluid rounded-circle m-3 comm_img" alt="Immagine utente">
+                        <div class="comm_usr flex-column m-auto">
+                            <div class="fs-4 m-auto ">Utente</div>
+                            <div class="fs-6 m-auto">7 ore fa</div>
+                        </div>
+                    </div>
+                    <p>
+                        Buonissima!
+                    </p>
+                </div>
+            </div>
+        </main>
+
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>   
+    </body>
+
+</html>
