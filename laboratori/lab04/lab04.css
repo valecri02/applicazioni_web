@@ -14,3 +14,7 @@
 .comm_img{
     width: 50px;
 }
+
+#procedimento, #info{
+    background-color: #ecfadc;
+}
