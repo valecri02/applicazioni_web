@@ -1,0 +1,102 @@
+librerie fornite da python per implementare il backend
+
+DJango fa moltissime cose automaticamente (parte amministrativa del sito realizzate automaticamente... utile per programmare in modo rapido)
+
+Flask è il microframework più usato: fa poche cose, molte astrazioni, estendibile, facile da usare
+Ha al suo interno due pezzi usati da Flask
+
+Flask è un framework web. Al di sotto usa due librerie:
+- web server Werkzeug
+- template engine Jinja per generare in maniera dinamica e più veloce pagine HTML
+    permette di usare una parte su più pagine
+    Costruire dinamicamente il contenuto, in base a ciò che c'è nel db
+
+Flask Resources (Flask Web Development libro di Miguel Grinberg)
+
+pip3 install Flask (per installarlo)
+    versione 3
+
+scaricato nel sistema: disponibile per tutti
+scaricarlo all'interno del singolo progetto che lo usa (creando un virtual environment: mini installazione dentro la cartella del progetto, 
+con le librerie specifiche del progetto - attivato solo quando viene avviato il progetto)
+
+#commento
+from flask import Flask
+
+# creare l'applicazione
+# app: nome della variabile (può essere chiamata come si vuole)
+app = Flask(__name__)
+
+#__name__ shortcut per il nome dell'applicazione
+
+# definire le routes = indirizzo nel browser + funzione che viene eseguita quando ci si trova in quell'indirizzo all'interno dela pagina web
+# decoratore: ogni volta che arriva una richiesta a domino/ viene eseguita la funzione definita sotto
+@app.route('/')
+def hello_world():
+    return 'Hello, world'
+
+è obbligatorio definire il nome
+opzionale definire metodi http a cui quella route deve rispondere ("methods=[POST]")
+La funzione allegata al decorator definisce la funzione nel browser interpretandolo come codice HTML
+
+app.py nome di default
+
+c'è una pagina 404 di default se andiamo ad una route non definita
+
+tutti i file statici devono eddere inseriti in una cartella static
+
+url_for crea automaticamente l'url per passare da una pagina all'altra
+LINK: url_for(nome_della_funzione_che_genera_quella_pagina)
+
+Jinja: sistema di templating
+Permette di separare la parte fissa da quella di templating
+struttura dell'HTML (parti fisse), da quelle generate automaticamente
+
+templates devono stare in una cartella chiamata templates
+Possono ricevere informazioni attraverso dei parametri
+Templates possono includere delli standard di programmazione
+in python passo direttamente l'array
+return render_template compone il codice HTML
+
+nei templates il codice python è racchiuso tra doppie parentesi graffe
+
+|e meccanismo di escaping formatta la variabile interpretandolo come testo valido in HTML
+evita problemi della visualizzazione o nel funzionamento della pagina
+
+{% viene eseguito %}    per controllare il flusso di esecuzione (for o if)
+{{ viene stampato }}    per visualizzare il contenuto di una variabile o il risultato di un'espressione
+
+
+PER OGNI PAGINA SERVE UN DECORATORE 
+@app.route('/')
+FUNZIONE ASSOCIATA CON IL RETURN CHE RESTITUISCE IL CODICE HTML 
+def index():
+    return CODICE_HTML
+
+
+Presenza di istruzioni duplicate: Jinja permette di ereditare alcuni elementi
+blocchi + ereditarietà dei template
+non richiede alcuna modifica nel codice python, cambiano i file .HTML
+
+{% block <block_name> %}...{% endblock %}
+per definire un blocco = componente HTML riutilizzabile all'interno di un template (non tra file di template diversi)
+il nome deve essere unico all'interno del template
+
+{% extends "filename.html" %}
+definire un template padre che i figli possono utilizzare, template da cui si eredita può stare in un'altra cartella all'interno della cartella templates
+
+templates/base.html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MangiaTO - {% block title %}{% endblock %}</title>
+  </head>
+  <body>
+    {% block content %}{% endblock %}
+  </body>
+</html>
+definisce due blocchi vuoti che verranno definiti diversamente nelle pagine
+il blocco può contenere molteplici elementi HTML o solo una parola
+
+in questo modo i templates figli devono solo estendere il template padre e definiscono il contenuto dei blocchi
+è possibile anche inserire blocchi vuoti in base, che non tutte le pagine devono riempire
