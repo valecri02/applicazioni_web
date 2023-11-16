@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Chi siamo{% endblock %}
+
+{% block navbar %}
+<li class="nav-item">
+    <a class="nav-link" aria-current="page" href="{{ url_for('home') }}">Home</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link active" href="{{ url_for('about') }}">Chi siamo</a>
+</li>
+{% endblock %}
+
+{% block content %}
+<p class="m-2 ">Il sito &egrave; stato progettato durante il corso di Introduzione alle Applicazioni Web del Politecnico di Torino.</p>
+<p class="m-2 ">Questo esempio &egrave; stato creato nell'anno accademico 2023/2024 da Cristoferi Valentina.</p>
+{% endblock %}
