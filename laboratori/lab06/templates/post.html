@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %} Post{% endblock %}
+
+
+{% block content %}
+<div class="row justify-content-end">
+    <main class="col-lg-10 col-md-12">
+        <div class="row border-top p-2 mx-2">
+            <div class="col-lg-3 col-md-6 col-sm-12 px-0">
+                <img class="w-100 p-2" src="{{ url_for('static', filename= post.pic) }}" alt="...">
+            </div>
+            <div class="col-lg-9 col-md-6 col-sm-12">
+                <section class="d-flex align-items-center mt-2 mb-4">
+                    <div>
+                        <img class="usrimg rounded-circle" src="{{ url_for('static', filename= post.propic) }}"
+                            alt="Questa è l'immagine dell'utente @{{post.username}}"></div>
+                    <div>
+
+                        <h4 class="username">@{{post.username}}</h4>
+                    </div>
+                    <div class="flex-grow-1 text-end">
+                        <p>{{post.date}}</p>
+                    </div>
+                </section>
+                <figure>
+                    <blockquote class="blockquote">
+                        <p>A well-known quote, contained in a blockquote element.</p>
+                    </blockquote>
+                    <figcaption class="blockquote-footer">
+                        Someone famous in <cite title="Source Title">Source Title</cite>
+                    </figcaption>
+                </figure>
+                {% for paragraph in post.text %}
+                <p>{{ paragraph }}</p>
+                {% endfor %}
+
+            </div>
+            <section class="bg-light">
+                <h5>Comments</h5>
+                {% for comment in post.comments %}
+                <article class="row py-2 border-bottom">
+                    <div class="col-2 text-center"><img class="usrimg rounded-circle" src="{{ url_for('static', filename= comment.propic) }}"
+                            alt="Questa è l'immagine dell'utente @username">
+                        <br>{{comment.user}}
+                    </div>
+                    <div class="col-10 fw-light">
+                        <p>{{comment.text}}</p>
+                    </div>
+                </article>
+                {% endfor %}
+            </section>
+        </div>
+    </main>
+</div>
+{% endblock %}
