@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+    <h1>MangiaTO</h1>
+    <p>Benvenuto sul sito della mensa del Politecnico di Torino.</p>
+    <h2>Menu</h2>
+    <ul>
+      {% for plate in first %}
+      <li>{{ plate.name | e }}</li>
+      {% endfor %}
+    </ul>
+
+    <form action="recensioni/new" method="post" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label for="txtNomeCognome" class="form-label">Nome e Cognome</label>
+        <input type="text" class="form-control" id="txtNomeCognome" name="nomecognome" required minlength="10" maxlength="100" pattern="[a-z A-Z]{10,100}">
+      </div>
+      <div class="mb-3">
+        <label for="txtMatricola" class="form-label">Matricola</label>
+        <input type="text" class="form-control" id="txtMatricola" name="matricola" required minlength="7" maxlength="7">
+      </div>
+      <div class="mb-3">
+        <label for="txtRecensione" class="form-label">Recensione</label>
+      <textarea id="txtRecensione" class="form-control" name="recensione" rows="3"></textarea>
+      </div> 
+      <div class="mb-3">
+        <label for="foto" class="form-label">Scegli file</label>
+        <input class="form-control" type="file" id="foto" name="foto">
+      </div>
+      <button type="submit" class="btn btn-primary mb-3">Invia recensione</button>
+    </form>
+
+    <p>
+      <img src="{{ url_for('static', filename='logo.png') }}">
+    </p>   
+{% endblock %}

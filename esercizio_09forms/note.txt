@@ -1,0 +1,23 @@
+consentono l'interazione con l'utente, ognuno deve essere identificato univocamente
+suggerimento: per distinguere i campi all'interno del form inserire il tipo di dato nel name
+
+size: per specificare numero massimo di caratteri che si possono inserire
+
+Ci deve per forza essere un button type="submit"
+
+action: url a cui verranno mandati i dati che inseriamo nel form
+aggiunge i dati nella URL del sito usando get - al posto di get si usa post
+con post aggiunge comunque l'url del file all'url ma non passa i dati come parametri
+
+
+usare modal per creare una finestra
+
+1a validation: type, required, lunghezza minima e massima
+necessario fare validazione perché altrimenti sarebbe possibile attaccare il sito interrogando il database
+
+
+FLASK
+.get  gestisce anche il caso in cui non esista il campo 'age'
+si DEVE fare validation dalla parte del server 
+
+app.logger per dalvare messaggi di errore warning o debug
