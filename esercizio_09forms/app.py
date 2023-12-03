@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
@@ -41,4 +41,4 @@ def new_recensione():
   recensioni.append(recensione)
 
   app.logger.info(recensioni)
-  return render_template('index.html') 
+  return redirect(url_for('index'))
