@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <aside class="col-xl-3 ps-xl-4">
+    <div class="container">
+        <div class="row">
+          <div class="col">
+            <ul class="list-group flex-xl-column flex-row justify-content-between">
+              <li class="list-group-item mt-xl-2 mb-xl-2 border-0">
+                <a href="#" title="Post di oggi">Oggi</a>
+              </li>
+              <li class="list-group-item mt-xl-2 mb-xl-2 border-0">
+                <a href="#" title="Post di questa settimana">Questa settimana</a>
+              </li>
+              <li class="list-group-item mt-xl-2 mb-xl-2 border-0">
+                <a href="#" title="Post di questo mese">Questo mese</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </aside>
+    
+
+
+    <article class="col-xl-9">
+        <ul class="list-group pe-2">
+            {% for post in post_list %}
+            <li class="list-group-item m-3 border">
+                <a class="link-dark link-underline link-underline-opacity-0" href="{{url_for('post_page', id = loop.index)}}">
+                  <div class="row">
+                    {% if post.pic != '' %}
+                      <div class="col-xl-4 col-md-6 ps-auto">
+                        <img class="img-fluid w-100" src= "{{ url_for('static', filename = post.pic) }}" alt="Immagine post">
+                      </div>
+                      <section class="col">
+                        <article class="row">
+                            <img class="col-xl-1 col-2 img-fluid rounded-cicle" src="{{ url_for('static', filename = post.propic) }}" alt="Foto profilo dell'utente">
+                            <em class="col-xl-9 col-7 fw-lighter pt-2">{{ post.username |e }}</em>
+                            <em class="col"> {{ post.date |e }}</em>
+                        </article>
+                    
+                        <main class="pt-3 pb-3">
+                          <p>
+                            {{post.text[0]}}
+                          </p>
+                        </main>
+                      </section>
+                    {% else %}
+                    <section class="col">
+                      <article class="row">
+                        <div class="col-xl-8 col-6 ps-auto">
+                          <div class="row">
+                            <img class="col-xl-1 col-2 img-fluid rounded-cicle" src="{{ url_for('static', filename = post.propic) }}" alt="Foto profilo dell'utente">
+                            <em class="col-xl-9 col-7 fw-lighter pt-2">{{ post.username |e }}</em>
+                          </div>
+                        </div>
+                        <em class="col text-end pe-5"> {{post.date | e }}</em>
+                      </article>
+                  
+                      <main class="row pt-3 pb-3">
+                        <p>
+                          {{post.text[0]}}
+                        </p>
+                      </main>
+                    </section>
+
+                    {% endif %}
+                </div>
+              </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </article>
+{% endblock %}
+
+{% block modal %}
+<div class="d-flex justify-content-end position-fixed fixed-bottom p-5">
+  <button class="rounded-circle d-inline-flex text-white bg-success justify-content-center border-0 p-auto align-items-center" style="width: 60px; height: 60px;"
+    data-bs-toggle="modal" data-bs-target="#modalform">
+    <p class="fs-1 m-auto">+</p>
+  </button>
+</div>
+<!-- Modal -->
+  <div class="modal" id="modalform" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title">Crea un nuovo post</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+        
+          <form action="post/new" method="post" enctype="multipart/form-data">
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="txtUsername" class="form-label ">Username</label>
+                <select class="form-select" id="txtUsername" name="username">
+                  {% for user in user_list %}
+                    <option value="{{ user |e }}">{{ user | e }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="txtContent" class="form-label">Che novità mi porti?</label>
+                <textarea id="txtContent" name="text" class="form-control" placeholder="Inserisci un testo per il tuo post" required minlength="30" maxlength="200"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="foto" class="form-label">Aggiungi un'immagine, se vuoi</label>                    
+                <input class="form-control" type="file" id="foto" name="pic">
+              </div>
+              <div class="mb-3">
+                <label for="datepost" class="form-label">Seleziona una data</label>
+                <input type="date"  id="datepost" class="form-control" name="date" required min="{{date | e}}"></textarea>
+              </div>             
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+              <button type="submit" class="btn btn-primary">Crea Post</button>
+            </div>
+          </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

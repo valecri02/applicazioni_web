@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block title %} Post{% endblock %}
+
+
+{% block content %}
+<div class="row justify-content-end">
+    <main class="col-lg-10 col-md-12">
+        <div class="row border-top p-2 mx-2">
+            {% if post.pic != '' %}
+            <div class="col-lg-3 col-md-6 col-sm-12 px-0">
+                <img class="w-100 p-2" src="{{ url_for('static', filename= post.pic) }}" alt="...">
+            </div>
+            <div class="col-lg-9 col-md-6 col-sm-12">
+            {% else %}
+            <div class="col-12"></div>
+            {% endif %}
+                <section class="d-flex align-items-center mt-2 mb-4">
+                    <div>
+                        <img class="usrimg rounded-circle" src="{{ url_for('static', filename= post.propic) }}"
+                            alt="Questa è l'immagine dell'utente @{{post.username}}"></div>
+                    <div>
+
+                        <h4 class="username">{{post.username}}</h4>
+                    </div>
+                    <div class="flex-grow-1 text-end">
+                        <p>{{post.date}}</p>
+                    </div>
+                </section>
+                <figure>
+                    <blockquote class="blockquote">
+                        <p>A well-known quote, contained in a blockquote element.</p>
+                    </blockquote>
+                    <figcaption class="blockquote-footer">
+                        Someone famous in <cite title="Source Title">Source Title</cite>
+                    </figcaption>
+                </figure>
+                {% for paragraph in post.text %}
+                <p>{{ paragraph }}</p>
+                {% endfor %}
+
+            </div>
+            <section class="bg-light">
+                <h5>Comments</h5>
+                {% for comment in post.comments %}
+                <article class="row py-2 border-bottom">
+                    <div class="col-2 text-center">
+                        {{comment.user}}
+                        {% if comment.pic != '' %}
+                            <br><img class="img-fluid" src="{{ url_for('static', filename= comment.pic) }}"
+                            alt="Questa è l'immagine dell'utente @username">
+                        {% endif %}
+                        
+                    </div>
+                    <div class="col-10 fw-light">
+                        <p>{{comment.text}}</p>
+                    </div>
+                </article>
+                {% endfor %}
+
+                <div class="pt-4 pb-4">
+                    <form action="/comment" method="post" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="txtUsername" class="form-label">Se vuoi che gli altri utenti sappiano che il commento è tuo</label>
+                            <input type="text" class="form-control" name="user" id="txtUsername" placeholder="Username (optional)">
+                        </div>
+                        <div class="mb-3">
+                            <textarea id="txtContent" name="text" class="form-control" placeholder="Inserisci il tuo commento" required rows="2"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="evaluation" id="intValue1" value="1">
+                            <label class="form-check-label" for="intValue1">1</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="evaluation" id="intValue2" value="2">
+                            <label class="form-check-label" for="intValue2">2</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="evaluation" id="intValue3" value="3" checked>
+                            <label class="form-check-label" for="intValue3">3</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="evaluation" id="intValue4" value="4">
+                            <label class="form-check-label" for="intValue4">4</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="evaluation" id="intValue5" value="5">
+                            <label class="form-check-label" for="intValue5">5</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="foto" class="form-label">Aggiungi un'immagine, se vuoi</label>                    
+                            <input class="form-control" type="file" id="foto" name="pic" accept=".jpg, .gif, .png">
+                          </div>
+                          <input type="number" name="id_post" value="{{post.id}}" hidden>
+                        
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+                </div>
+                
+            </section>
+        </div>
+    </main>
+</div>
+{% endblock %}
