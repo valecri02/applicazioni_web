@@ -1,0 +1,22 @@
+DATABASE per far persistere i dati presenti nell'applicazione
+I dati gestiti sono tutti salvari e gestiti per mezzo di un database
+
+1. far persistere i dati
+2. gestire grandi quantità di dati
+
+Persistenza finora è all'interno di python, è quindi necessario integrare il server (database)
+Tipicamente un database viene eseguito all'interno di un altro computer (server remoto) - complessità
+- gestire la connessione
+- essere sicuri che il database funzioni sempre
+
+SQLite è un database che viene rappresentato come un file locale (evita di gestire connessioni)
+
+Standard offerti da Python per gestire i database
+Possibile interfacciarsi facilmente a diversi database: consiglio usare SQLite per lo sviluppo e implementare i dati 
+in un server remoto solo in seguito
+
+1: fare il connect - andare a puntare ad un file
+2: cursor - elemento che permette di fare richieste al database
+
+usare un cursore per ogni query
+Si può usare sempre la stessa connessione, ma si deve creare un cursore per ciascuna query
