@@ -1,0 +1,43 @@
+prendere dati dell'utente per fare l'autenticazione e identificazione.
+
+Cookies servono per manternere lo stato in HTTP.
+
+1 browser cerca di fare un login (autenticazione utente)
+2 utente manda i dati come richiesta POST
+3 se non ci fossero le session, l'utente dovrebbe riautenticarsi prima di ogni richiesta
+
+SESSION: l'utente dopo essersi autenticato manda un campo aggiuntivo nelle richieste, che contiene il sessionID
+mandato all'interno di un cookie 
+ad ogni richiesta l'utente autenticato manda il cookie
+(cancellando il cookie ciene cancellata la session che permetteva di rimanere autenticati)
+
+SessionID 
+deve essere inviato dal client ad ogni richiesta che fa verso il server
+non deve contenere dati sensibili (password e username non direttamente accessibili)
+
+cookie: informazioni salvate nel browser.
+
+Per cosa salvare i cookie:
+- carrello
+- elementi aperti
+- interazioni che fa l'utente sul sito web
+
+usando i cookies il sito acquisisce tutte le informazioni sull'utente
+expirationDate: scadenza cookie
+
+autenticazione: identificare l'utente
+autorizzazione: in base al tipo di utente che ha fatto accesso, a quali risorse può accedere
+
+verifiche da fare sia sul client e sia sul server (fatte sia sul database sia sulla server application)
+coinvolge tutti i pezzi dell'applicazione
+
+Flask App   login
+browser     gestisce i cookie dove andiamo a salvare il sessionID
+server      verifica di avere il sessionID
+quando viene definita la route è necessario chiedersi se tale utente ha accesso al servizo
+
+AUTHENTICATION
+compilare nome utente e password in un form, mandati come richiesta POST
+db cerca username tra i suoi campi e verifica il match con la password
+se sono giusti crea il sessionID e manda al client il sessionID (mandato attraverso un cookie)
+

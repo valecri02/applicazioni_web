@@ -1,0 +1,20 @@
+#intestazione{
+    background-color: #005031;
+}
+
+#title{
+    background-color: #c8f7c5;
+    color: #005031;
+}
+
+.comm_int{
+    display: inline-flex;
+}
+
+.comm_img{
+    width: 50px;
+}
+
+#procedimento, #info{
+    background-color: #ecfadc;
+}

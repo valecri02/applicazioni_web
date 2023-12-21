@@ -100,10 +100,10 @@ def new_comment():
   has_img = False
   if picture.filename != '':
     has_img = True
-    picture.save('static/' + picture.filename + str(addcomment['id_post']))
-    addcomment['immagine_post'] = picture.filename + str(addcomment['id_post'])
+    picture.save('static/' + picture.filename)
+    addcomment['immagine'] = picture.filename
   else:
-    addcomment['immagine_post'] = ''
+    addcomment['immagine'] = ''
 
   done = social_dao.add_comment(addcomment, has_user, has_img)
   if (done):
